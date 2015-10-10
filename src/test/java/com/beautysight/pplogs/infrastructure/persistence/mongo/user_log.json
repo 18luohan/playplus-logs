@@ -1,0 +1,29 @@
+{
+  "sessionId": "session-id-01",
+  "code": "1000020005",
+  "payload": {
+    "count": "5",
+    "srcPageNo": "1",
+    "duration": "15000"
+  },
+  "user": {
+    "id": "55fb7491dc0e82000b8dc81d",
+    "globalId": "+86-15824464610",
+    "nickname": "kingkong"
+  },
+  "client": {
+    "imei": "imei-001",
+    "imsi": "imsi-001",
+    "appVersion": "1.0",
+    "os": {
+      "type": "android",
+      "version": "4.4.2",
+      "distribution": "Smartisan OS v2.0.2"
+    },
+    "model": "SM705"
+  },
+  "loc": {
+    "lon": "-73.977842",
+    "lat": "40.752315"
+  }
+}
