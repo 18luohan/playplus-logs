@@ -4,10 +4,10 @@
 
 package com.beautysight.pplogs.infrastructure.persistence.mongo;
 
-import com.beautysight.common.utils.Jsons;
+import com.beautysight.SpringBasedAppTest;
+import com.beautysight.common.bizapp.utils.Jsons;
 import com.beautysight.pplogs.domain.UserLog;
 import com.beautysight.pplogs.domain.UserLogRepo;
-import com.beautysight.SpringBasedAppTest;
 import com.beautysight.utils.Files;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

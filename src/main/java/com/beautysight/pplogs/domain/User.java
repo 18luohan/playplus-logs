@@ -4,22 +4,25 @@
 
 package com.beautysight.pplogs.domain;
 
-import com.beautysight.common.domain.DomainVO;
-import com.beautysight.common.utils.PreconditionUtils;
+
+import com.beautysight.common.bizapp.domain.ValueObject;
+import com.beautysight.common.bizapp.utils.PreconditionUtils;
+import com.google.common.base.Optional;
 
 /**
  * @author chenlong
  * @since 1.0
  */
-public class User extends DomainVO {
+public class User extends ValueObject {
 
     private String id;
     private String globalId;
     private String nickname;
 
-    public void validate() {
-        PreconditionUtils.checkRequired("user.id", id);
-        PreconditionUtils.checkRequired("user.globalId", globalId);
+    @Override
+    public void validate(Optional<String> fieldPrefix) {
+        PreconditionUtils.checkRequired(prefixTo("id", fieldPrefix), id);
+        PreconditionUtils.checkRequired(prefixTo("globalId", fieldPrefix), globalId);
     }
 
 }

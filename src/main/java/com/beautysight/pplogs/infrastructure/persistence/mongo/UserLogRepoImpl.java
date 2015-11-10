@@ -4,9 +4,9 @@
 
 package com.beautysight.pplogs.infrastructure.persistence.mongo;
 
+import com.beautysight.common.mongobased.persistence.AbstractMongoRepository;
 import com.beautysight.pplogs.domain.UserLog;
 import com.beautysight.pplogs.domain.UserLogRepo;
-import com.beautysight.pplogs.infrastructure.persistence.mongo.base.AbstractMongoRepository;
 import org.springframework.stereotype.Repository;
 
 /**

@@ -2,27 +2,21 @@
  * Copyright (C) 2014, BeautySight Inc. All rights reserved.
  */
 
-package com.beautysight.common.ex;
+package com.beautysight.pplogs.rest.common;
+
+import com.beautysight.common.bizapp.ex.Error;
 
 /**
- * Here is Javadoc.
- * <p/>
- * Created by chenlong on 2015-05-08.
- *
  * @author chenlong
  * @since 1.0
  */
-public enum CommonErrorId implements Error.Id {
+public enum AuthErrorId implements Error.Id {
 
-    internal_server_error(10001),
-    service_unavailable(10002),
-
-    illegal_app_id(10004),
-    invalid_params(10008);
+    illegal_app_client(10101);
 
     private Integer code;
 
-    CommonErrorId(Integer code) {
+    AuthErrorId(Integer code) {
         this.code = code;
     }
 

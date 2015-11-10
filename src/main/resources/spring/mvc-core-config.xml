@@ -44,7 +44,7 @@
             </list>
         </property>
         <property name="objectMapper">
-            <bean class="com.beautysight.common.utils.Jsons.CustomObjectMapper"/>
+            <bean class="com.beautysight.common.bizapp.utils.Jsons.CustomObjectMapper"/>
         </property>
     </bean>
 

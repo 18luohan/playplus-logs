@@ -4,8 +4,8 @@
 
 package com.beautysight.pplogs.rest.common;
 
-import com.beautysight.common.ex.Error;
-import com.beautysight.common.utils.Jsons;
+import com.beautysight.common.bizapp.ex.Error;
+import com.beautysight.common.bizapp.utils.Jsons;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

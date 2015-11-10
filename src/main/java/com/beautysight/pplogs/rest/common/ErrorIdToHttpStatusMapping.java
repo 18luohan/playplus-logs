@@ -4,8 +4,8 @@
 
 package com.beautysight.pplogs.rest.common;
 
-import com.beautysight.common.ex.CommonErrorId;
-import com.beautysight.common.ex.Error;
+import com.beautysight.common.bizapp.ex.CommonErrorId;
+import com.beautysight.common.bizapp.ex.Error;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -25,13 +25,19 @@ public class ErrorIdToHttpStatusMapping {
 
     static {
 
+        // 4xx Client Error
+        MAPPING.put(CommonErrorId.bad_request, HttpStatus.BAD_REQUEST);
+        MAPPING.put(CommonErrorId.invalid_params, HttpStatus.UNPROCESSABLE_ENTITY);
+        MAPPING.put(CommonErrorId.business_constraint_violated, HttpStatus.UNPROCESSABLE_ENTITY);
+
+        MAPPING.put(AuthErrorId.illegal_app_client, HttpStatus.UNAUTHORIZED);
+
         // 5xx Server Error
         MAPPING.put(CommonErrorId.internal_server_error, HttpStatus.INTERNAL_SERVER_ERROR);
         MAPPING.put(CommonErrorId.service_unavailable, HttpStatus.SERVICE_UNAVAILABLE);
 
-        // 4xx Client Error
-        MAPPING.put(CommonErrorId.invalid_params, HttpStatus.UNPROCESSABLE_ENTITY);
-        MAPPING.put(CommonErrorId.illegal_app_id, HttpStatus.UNAUTHORIZED);
+        MAPPING.put(CommonErrorId.server_data_stale, HttpStatus.SERVICE_UNAVAILABLE);
+
     }
 
     public static HttpStatus correspondingStatus(Error.Id errorId) {
@@ -44,3 +50,4 @@ public class ErrorIdToHttpStatusMapping {
     }
 
 }
+

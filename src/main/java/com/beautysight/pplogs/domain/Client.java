@@ -4,14 +4,15 @@
 
 package com.beautysight.pplogs.domain;
 
-import com.beautysight.common.domain.DomainVO;
-import com.beautysight.common.utils.PreconditionUtils;
+import com.beautysight.common.bizapp.domain.ValueObject;
+import com.beautysight.common.bizapp.utils.PreconditionUtils;
+import com.google.common.base.Optional;
 
 /**
  * @author chenlong
  * @since 1.0
  */
-public class Client extends DomainVO {
+public class Client extends ValueObject {
 
     private String imei;
     private String imsi;
@@ -19,29 +20,32 @@ public class Client extends DomainVO {
     private OS os;
     private String model;
 
-    public static class OS extends DomainVO {
+    @Override
+    public void validate(Optional<String> fieldPrefix) {
+        PreconditionUtils.checkRequired(prefixTo("imei", fieldPrefix), imei);
+        PreconditionUtils.checkRequired(prefixTo("imsi", fieldPrefix), imsi);
+        PreconditionUtils.checkRequired(prefixTo("appVersion", fieldPrefix), appVersion);
+        PreconditionUtils.checkRequired(prefixTo("os", fieldPrefix), os);
+
+        os.validate(Optional.of(prefix(fieldPrefix) + "os"));
+    }
+
+    public static class OS extends ValueObject {
         private Type type;
         private String version;
         // Android系统的各种分发版
         private String distribution;
 
-        public void validate() {
-            PreconditionUtils.checkRequired("client.os.type", type);
-            PreconditionUtils.checkRequired("client.os.version", version);
-            PreconditionUtils.checkRequired("client.os.distribution", distribution);
+        @Override
+        public void validate(Optional<String> fieldPrefix) {
+            PreconditionUtils.checkRequired(prefixTo("type", fieldPrefix), type);
+            PreconditionUtils.checkRequired(prefixTo("version", fieldPrefix), version);
+            PreconditionUtils.checkRequired(prefixTo("distribution", fieldPrefix), distribution);
         }
 
         public enum Type {
             android, ios
         }
-    }
-
-    public void validate() {
-        PreconditionUtils.checkRequired("client.imei", imei);
-        PreconditionUtils.checkRequired("client.imsi", imsi);
-        PreconditionUtils.checkRequired("client.appVersion", appVersion);
-        PreconditionUtils.checkRequired("client.os", os);
-        os.validate();
     }
 
 }

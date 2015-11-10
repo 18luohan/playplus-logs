@@ -4,8 +4,7 @@
 
 package com.beautysight.pplogs.rest.common;
 
-
-import com.beautysight.common.ex.CommonErrorId;
+import com.beautysight.common.bizapp.ex.CommonErrorId;
 import com.google.common.base.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,13 +32,13 @@ public class AppIdentityAuthenticator extends HandlerInterceptorAdapter {
         }
 
         if (!appId.isPresent()) {
-            Responses.setStatusAndWriteTo(response, CommonErrorId.illegal_app_id,
+            Responses.setStatusAndWriteTo(response, CommonErrorId.bad_request,
                     String.format("%s header required", Requests.APP_ID_HEADER));
             return false;
         }
 
         if (!appId.get().equals(mobileAppId)) {
-            Responses.setStatusAndWriteTo(response, CommonErrorId.illegal_app_id,
+            Responses.setStatusAndWriteTo(response, AuthErrorId.illegal_app_client,
                     String.format("Illegal %s header value", Requests.APP_ID_HEADER));
             return false;
         }

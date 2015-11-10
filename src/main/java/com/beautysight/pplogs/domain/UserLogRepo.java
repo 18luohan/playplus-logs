@@ -4,7 +4,7 @@
 
 package com.beautysight.pplogs.domain;
 
-import com.beautysight.pplogs.infrastructure.persistence.mongo.base.MongoRepository;
+import com.beautysight.common.mongobased.persistence.MongoRepository;
 
 /**
  * @author chenlong

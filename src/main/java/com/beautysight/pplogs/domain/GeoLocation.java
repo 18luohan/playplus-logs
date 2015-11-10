@@ -4,8 +4,9 @@
 
 package com.beautysight.pplogs.domain;
 
-import com.beautysight.common.domain.DomainVO;
-import com.beautysight.common.utils.PreconditionUtils;
+import com.beautysight.common.bizapp.domain.ValueObject;
+import com.beautysight.common.bizapp.utils.PreconditionUtils;
+import com.google.common.base.Optional;
 
 /**
  * 地理位置
@@ -13,7 +14,7 @@ import com.beautysight.common.utils.PreconditionUtils;
  * @author chenlong
  * @since 1.0
  */
-public class GeoLocation extends DomainVO {
+public class GeoLocation extends ValueObject {
 
     private static final Float smallerLonBound = Float.valueOf(-180);
     private static final Float biggerLonBound = Float.valueOf(180);
@@ -23,9 +24,10 @@ public class GeoLocation extends DomainVO {
     private Float lon;
     private Float lat;
 
-    public void validate() {
-        PreconditionUtils.between(smallerLonBound, biggerLonBound, "loc.lon", lon);
-        PreconditionUtils.between(smallerLatBound, biggerLatBound, "loc.lat", lat);
+    @Override
+    public void validate(Optional<String> fieldPrefix) {
+        PreconditionUtils.between(smallerLonBound, biggerLonBound, prefixTo("lon", fieldPrefix), lon);
+        PreconditionUtils.between(smallerLatBound, biggerLatBound, prefixTo("lat", fieldPrefix), lat);
     }
 
 }

@@ -4,9 +4,9 @@
 
 package com.beautysight.pplogs.rest.common;
 
-import com.beautysight.common.ex.ApplicationException;
-import com.beautysight.common.ex.CommonErrorId;
-import com.beautysight.common.ex.Error;
+import com.beautysight.common.bizapp.ex.ApplicationException;
+import com.beautysight.common.bizapp.ex.CommonErrorId;
+import com.beautysight.common.bizapp.ex.Error;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -21,10 +21,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Here is Javadoc.
- * <p/>
- * Created by chenlong on 2015-05-08.
- *
  * @author chenlong
  * @since 1.0
  */

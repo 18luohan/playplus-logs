@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
 
+    <group name="base" description="basic config">
+        <property name="deployment.env" defaultValue="dev" />
+    </group>
+
     <group name="mongo.config" description="mongo db config">
         <property name="mongo.host" defaultValue="localhost" />
         <property name="mongo.port" defaultValue="27017" />
@@ -25,6 +29,7 @@
         <generate template="WEB-INF/classes/app-config.properties" destfile="WEB-INF/classes/app-config.properties"
                   charset="UTF-8"/>
         <generate template="WEB-INF/classes/logback.xml" destfile="WEB-INF/classes/logback.xml" charset="UTF-8"/>
+        <generate template="WEB-INF/classes/spring/persistence-mongo.xml.vm" destfile="WEB-INF/classes/spring/persistence-mongo.xml" charset="UTF-8" />
     </script>
 
 </config>
