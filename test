@@ -1,0 +1,6 @@
+sudo mkdir -p /data/db/mongo/node2
+sudo chown -R beedo:devops /data/db
+
+
+sudo mkdir -p /var/log/mongodb/node2
+sudo chown -R beedo:devops /var/log/mongodb
