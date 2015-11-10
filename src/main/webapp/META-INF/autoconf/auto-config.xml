@@ -6,9 +6,11 @@
     </group>
 
     <group name="mongo.config" description="mongo db config">
-        <property name="mongo.host" defaultValue="localhost" />
-        <property name="mongo.port" defaultValue="27017" />
-        <property name="mongo.db.name" defaultValue="shaimei" />
+        <property name="mongo.host" defaultValue="localhost" required="false" />
+        <property name="mongo.port" defaultValue="27017" required="false" />
+        <property name="mongo.db.name" defaultValue="pplogs" required="false"  />
+        <property name="mongo.replset" defaultValue="localhost" required="false"  />
+        <property name="mongo.credentials" defaultValue="localhost:27017" required="false" />
     </group>
 
     <group name="log.config">
